@@ -1,59 +1,80 @@
-**Prueba Técnica Laravel - Garantías Comunitarias**  
+### 🧩 Backend - Laravel
 
-A continuación, se describen las tareas que debes realizar en el framework Laravel para completar esta prueba técnica:  
+## 🧾 Descripción General
 
----
+El backend consiste en una API REST construida con Laravel. Proporciona los endpoints necesarios para gestionar entidades y contactos. Los datos se devuelven en formato JSON.
 
-### **Tareas a realizar**  
+## 🛠️ Tecnologías
+Laravel 10+
 
-1. **Configuración inicial:**  
-   - Instala Laravel localmente en tu entorno de desarrollo.  
-   - Configura las variables de entorno en el archivo `.env` para establecer la conexión a la base de datos.  
+Eloquent ORM
 
-2. **Solución de errores:**  
-   - Identifica y corrige los posibles errores que impidan la correcta ejecución del backend.  
+Laravel Resource Controllers
 
-3. **CRUD de Entidades:**  
-   - Verifica que el CRUD de Entidades funcione correctamente.  
-   - Realiza las correcciones necesarias para garantizar su funcionalidad.  
+CORS Middleware
 
-4. **Relaciones de modelos:**  
-   - Define las relaciones entre los modelos `Contactos` y `Entidades`, asegurando que estén correctamente configuradas en los modelos respectivos.  
+Base de datos: MySQL / SQLite
 
-5. **CRUD de Contactos:**  
-   - Crea un controlador para `Contactos` con las siguientes validaciones:  
-     - **Entidad existente:** Verifica que la entidad asociada exista en la tabla `entidades` antes de crear o actualizar un contacto.  
-     - **Evitar duplicados:** Asegúrate de que no se repitan el nombre y el email del contacto en la base de datos.  
-   - Implementa todas las operaciones básicas del CRUD (crear, leer, actualizar y eliminar).  
+##🔌 Endpoints
 
-6. **Migración de Contactos:**  
-   - Crea una migración para agregar un campo `identificacion` obligatorio en la tabla `contactos`.  
-   - Asegúrate de que el campo `identificacion` sea único y obligatorio para la creación y edición de contactos.  
+## 📁 Entidades
+Método	Endpoint	Descripción
+GET	/api/entidades	Listar entidades
+POST	/api/entidades	Crear nueva entidad
+PUT	/api/entidades/{id}	Actualizar entidad
+DELETE	/api/entidades/{id}	Eliminar entidad
 
----
-
-### **Instrucciones de entrega**  
-1. **Rama para cambios:**  
-   - En Git Hub Haz clic en el botón Fork (ubicado en la esquina superior derecha del repositorio)
-   - Clonar el Fork en tu máquina local
-   - Crea una rama en el repositorio siguiendo el formato: **[Tus iniciales]_[Número de identificación]**.
-   - Realiza todos los cambios necesarios en esta rama.
-
-2. **Pull Request:**  
-   - Una vez completadas las tareas, sube tus cambios al repositorio.  
-   - Crea un **Pull Request** desde la rama de tu fork hacia la rama principal del repositorio original. 
-
-3. **Entrega alternativa:**  
-   - Si encuentras dificultades para realizar el Pull Request, sigue estos pasos:  
-     - Comprime la carpeta del proyecto Laravel.  
-     - Excluye la carpeta `vendor` para reducir el tamaño del archivo.  
-     - Sube el archivo comprimido a una plataforma de almacenamiento en la nube (OneDrive, Google Drive, etc.).  
-     - Comparte el enlace de descarga en un correo dirigido a la persona que te envió esta prueba.  
-
-4. **Formato de entrega por correo:**  
-   - Incluye en el correo una descripción breve del trabajo realizado y cualquier detalle relevante sobre la prueba.  
-   - Si usaste almacenamiento en la nube, proporciona el enlace de descarga al archivo comprimido.  
+## 📁 Contactos
+Método	Endpoint	Descripción
+GET	/api/contactos	Listar contactos
+POST	/api/contactos	Crear nuevo contacto
+PUT	/api/contactos/{id}	Actualizar contacto
+DELETE	/api/contactos/{id}	Eliminar contacto
 
 ---
 
-Si tienes preguntas o necesitas asistencia técnica durante la ejecución de esta prueba, comunícate con el contacto que te proporcionó esta tarea. ¡Éxito en la prueba! 😊
+## 🚀 Pasos para levantar el proyecto
+
+## 🔁 Requisitos previos
+Backend (Laravel)
+PHP >= 8.1
+
+Composer
+
+MySQL
+
+Laravel CLI (composer global require laravel/installer)
+
+Frontend (Angular)
+Node.js >= 18
+
+Angular CLI (npm install -g @angular/cli)
+
+## 🧩 Instalación y ejecución
+
+Clonar el repositorio
+
+git clone https://github.com/sofiaresttrepo/prueba_tecnica_laravel
+cd tu-repo
+
+🖥️ Backend - Laravel
+
+cd backend    # o la carpeta donde está el Laravel
+cp .env.example .env
+composer install
+php artisan key:generate
+
+⚙️ Configurar base de datos
+Edita el archivo .env y asegúrate de tener estos valores:
+
+DB_DATABASE=nombre_de_tu_db
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+
+🧱 Ejecutar migraciones
+php artisan migrate
+
+▶️ Levantar el servidor
+
+php artisan serve
+Esto iniciará el backend en http://127.0.0.1:8000.
