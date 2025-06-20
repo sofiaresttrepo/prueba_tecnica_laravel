@@ -33,7 +33,7 @@ class EntidadController extends Controller
             'nombre' => 'required|string|max:191',
             'nit' => 'required|string|max:191',
             'direccion' => 'nullable|string|max:191',
-            'telefono' => 'nullable|string|max:191',
+            'telefono' => 'nullable|numeric',
             'email' => 'nullable|email|max:191',
         ]);
 
@@ -76,9 +76,10 @@ class EntidadController extends Controller
 
         $validatedData = $request->validate([
             'nombre' => 'sometimes|required|string|max:255',
+            'nit' => 'sometimes|required|string|max:255',
             'direccion' => 'nullable|string|max:255',
-            'telefono' => 'nullable|string|max:15',
-            'email' => 'nullable|email|max:255',
+            'telefono' => 'nullable|numeric',
+            'email' => 'nullable|email|max:255'
         ]);
 
         $entidad->update($validatedData);

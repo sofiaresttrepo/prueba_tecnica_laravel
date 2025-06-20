@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id(); // id del contacto
             $table->string('nombre'); // Nombre del contacto
             $table->string('email')->nullable(); // Email (opcional)
-            $table->string('telefono')->nullable(); // Teléfono (opcional)
+            $table->bigInteger('telefono')->nullable(); // Teléfono (opcional)
             $table->string('direccion')->nullable(); // Dirección (opcional)
             $table->text('notas')->nullable(); // Notas (opcional)
             $table->unsignedBigInteger('entidad_id')->nullable();
@@ -23,6 +23,9 @@ return new class extends Migration
             $table->date('fecha_nacimiento')->nullable(); // Fecha de nacimiento (opcional)
             $table->unsignedBigInteger('creado_por')->nullable(); // Relación con usuarios (opcional)
             $table->timestamps(); // created_at y updated_at
+            
+            // Evitar duplicados de nombre y email
+            $table->unique(['nombre', 'email']);
         });
     }
 

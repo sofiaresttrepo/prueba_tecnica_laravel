@@ -16,11 +16,11 @@ class ContactoController extends Controller
     {
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'nullable|email',
-            'telefono' => 'nullable|string',
+            'email' => 'nullable|email|unique:contactos,email,NULL,id,nombre,' . $request->nombre,
+            'telefono' => 'nullable|numeric',
             'direccion' => 'nullable|string',
             'notas' => 'nullable|string',
-            'entidad_id' => 'required|integer',
+            'entidad_id' => 'required|integer|exists:entidades,id',
             'fecha_nacimiento' => 'nullable|date',
             'creado_por' => 'nullable|integer',
         ]);
@@ -37,11 +37,11 @@ class ContactoController extends Controller
     {
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'nullable|email',
-            'telefono' => 'nullable|string',
+            'email' => 'nullable|email|unique:contactos,email,' . $contacto->id . ',id,nombre,' . $request->nombre,
+            'telefono' => 'nullable|numeric',
             'direccion' => 'nullable|string',
             'notas' => 'nullable|string',
-            'entidad_id' => 'required|integer',
+            'entidad_id' => 'required|integer|exists:entidades,id',
             'fecha_nacimiento' => 'nullable|date',
             'creado_por' => 'nullable|integer',
         ]);

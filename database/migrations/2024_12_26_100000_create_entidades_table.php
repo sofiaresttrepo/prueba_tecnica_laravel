@@ -15,7 +15,7 @@ return new class extends Migration
         $table->id();
         $table->string('nombre');
         $table->string('nit')->nullable();
-        $table->string('telefono')->nullable();
+        $table->bigInteger('telefono')->nullable();
         $table->string('direccion')->nullable();
         $table->timestamps();
     });
